@@ -1,14 +1,16 @@
 class IPhoneMockup extends HTMLElement {
   constructor() {
     super();
-    // 使用 Shadow DOM，隔离样式
+    // 使用 Shadow DOM 隔离样式
     this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
     this.shadowRoot.innerHTML = `
+      <!-- 在 Shadow Root 内引入 Tailwind CDN -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.7/dist/tailwind.min.css">
+
       <style>
-        /* :host 确保自定义元素在外部是 inline-block */
         :host {
           display: inline-block;
         }
@@ -77,8 +79,6 @@ class IPhoneMockup extends HTMLElement {
           background: #000;
           border-radius: 2px;
         }
-
-        /* 4格信号条 */
         .bar:nth-child(1) { height: 4px; }
         .bar:nth-child(2) { height: 8px; }
         .bar:nth-child(3) { height: 12px; }
@@ -92,14 +92,12 @@ class IPhoneMockup extends HTMLElement {
           position: relative;
           padding: 1px;
         }
-
         .battery-level {
           height: 100%;
           width: 90%;
-          background: #ffd700; /* 金色 */
+          background: #ffd700;
           border-radius: 1px;
         }
-
         .battery::after {
           content: "";
           position: absolute;
@@ -112,12 +110,12 @@ class IPhoneMockup extends HTMLElement {
         }
 
         .content-area {
-          flex: 1; /* 占据剩余空间 */
+          flex: 1;
           position: relative;
           padding: 20px;
           overflow-y: auto;
           box-sizing: border-box;
-          background: #fff; /* 背景与机身一致 */
+          background: #fff;
         }
 
         .bottom-indicator {
@@ -150,7 +148,7 @@ class IPhoneMockup extends HTMLElement {
         </div>
 
         <div class="content-area">
-          <!-- 将外部写在 <iphone-mockup> ... </iphone-mockup> 中的内容插入到这里 -->
+          <!-- 外部写在 <iphone-mockup>...</iphone-mockup> 中的内容，将分发到此处 -->
           <slot></slot>
         </div>
 
