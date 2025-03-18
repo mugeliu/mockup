@@ -101,7 +101,7 @@ class IPhoneMockup extends HTMLElement {
       .content-area {
         flex: 1;
         position: relative;
-        padding: 20px;
+        padding: 0 10px 10px 10px;
         overflow-y: auto;
         box-sizing: border-box;
         background: #fff;
