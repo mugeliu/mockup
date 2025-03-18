@@ -6,12 +6,6 @@ class IPhoneMockup extends HTMLElement {
   connectedCallback() {
     const shadow = this.shadowRoot;
 
-    // 动态创建并添加 Tailwind CSS 链接
-    const tailwindLink = document.createElement('link');
-    tailwindLink.setAttribute('rel', 'stylesheet');
-    tailwindLink.setAttribute('href', 'https://cdn.jsdelivr.net/npm/tailwindcss@3.2.7/dist/tailwind.min.css');
-    shadow.appendChild(tailwindLink);
-
     // 内部自定义样式
     const style = document.createElement('style');
     style.textContent = `
